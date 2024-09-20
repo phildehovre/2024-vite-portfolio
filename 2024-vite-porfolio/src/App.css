@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set the default font size and smooth rendering for text */
+html {
+  font-size: 100%; /* 16px is the default */
+  -webkit-text-size-adjust: 100%; /* Prevents font scaling on mobile */
+  line-height: 1.5; /* Improves text readability */
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* Inherit box-sizing behavior */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove the border around clickable elements in IE */
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit; /* Make sure input elements inherit fonts */
+  font-size: inherit; /* Inherit font size from the parent */
+}
+
+/* Remove default list styling */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link underlining */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove table border spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Set images and media elements to be fully responsive */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure form elements fill their containers */
+button,
+input {
+  border: none;
+  background: none;
+}
