@@ -1,0 +1,13 @@
+.slide_ctn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slide {
+    height: 750px;
+    max-width: 1200px;
+    width: 100svw;
+    border: 1px solid red;
+}

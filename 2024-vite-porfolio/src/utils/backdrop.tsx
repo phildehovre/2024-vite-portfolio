@@ -7,10 +7,13 @@ export const renderBackdrop = (length: number) => {
     array.push(count);
     count++;
   }
+
+  const colors = ["lavender", "salmon"];
+
   return array.map((_, i) => {
     return (
       <ScreenBlock
-        bgColor={i % 2 == 0 ? "lavender" : "salmon"}
+        bgColor={colors[i % 2]}
         gsapIndex={{ index: i, length: array.length }}
       />
     );
