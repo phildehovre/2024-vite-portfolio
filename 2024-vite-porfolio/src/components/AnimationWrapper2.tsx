@@ -4,43 +4,42 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ScreenBlock } from "./ScreenBlock";
 
-const AnimationWrapper = (props: any) => {
+const AnimationWrapper2 = () => {
   gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-  const { animationElements } = props;
 
   useGSAP(() => {
     let targets = gsap.utils.toArray(".slide") as HTMLElement[];
+    let start = "slide_ctn-start";
+    let end = document.querySelector(".slide_ctn-end") as HTMLElement;
 
-    const test = (i: number) => {
-      const totalHeight = (targets[0].offsetHeight || 0) * (targets.length - i);
-      return totalHeight;
-    };
+    ScrollTrigger.defaults({
+      markers: true,
+    });
 
     targets.forEach((slide: any, i: number) => {
       ScrollTrigger.create({
         trigger: slide,
         start: "top 10%", // Adjust to your needs
-        // end: () => `+=${totalHeight}`,
-        end: () => `+=${test(i)}`,
-        pin: true,
-        scrub: true,
-        markers: true,
+        endTrigger: end,
+        pin: slide,
+        id: `slide-${i}`,
+        scrub: 10,
       });
     });
   });
 
   return (
     <div className="screenblock">
-      <div className="slide_ctn">
+      <div className="slide_ctn-start">
         <Slide />
         <Slide />
         <Slide />
         <Slide />
       </div>
+      <div className="slide_ctn-end"></div>
       <ScreenBlock gsapIndex={{ index: -1, length: 0 }} bgColor="lavender" />
     </div>
   );
 };
 
-export default AnimationWrapper;
+export default AnimationWrapper2;
