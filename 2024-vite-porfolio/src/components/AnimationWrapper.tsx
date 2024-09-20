@@ -12,13 +12,17 @@ const AnimationWrapper = (props: any) => {
   useGSAP(() => {
     let targets = gsap.utils.toArray(".slide") as HTMLElement[];
 
-    const totalHeight = targets.length * (targets[0].offsetHeight || 0);
+    const test = (i: number) => {
+      const totalHeight = (targets[0].offsetHeight || 0) * (targets.length - i);
+      return totalHeight;
+    };
 
-    targets.forEach((slide: any) => {
+    targets.forEach((slide: any, i: number) => {
       ScrollTrigger.create({
         trigger: slide,
         start: "top 10%", // Adjust to your needs
-        end: () => `+=${totalHeight}`,
+        // end: () => `+=${totalHeight}`,
+        end: () => `+=${test(i)}`,
         pin: true,
         scrub: true,
         markers: true,
